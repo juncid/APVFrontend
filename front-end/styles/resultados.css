@@ -1,0 +1,334 @@
+.resultado .container-title {
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.resultado .desktop .container-title {
+    padding: 1.5rem 0;
+}
+
+.resultado .container-title h1 {
+    color: #333333;
+    font-weight: 700;
+}
+
+.resultado .container-title h5 {
+    font-weight: 300;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.resultado .container-title p {
+    color: #333333;
+    font-size: 16px;
+}
+
+.resultado .mobile .container-title .beneficio p {
+    letter-spacing: 0.5px;
+}
+
+.resultado .desktop .container-title p {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+}
+
+.resultado .sueldo {
+    position: relative;
+}
+
+.resultado .aumentar img {
+    width: 34%;
+}
+
+.resultado .sueldo h1,
+.resultado .sueldo p {
+    display: inline;
+}
+.resultado .monto h1 span {
+    color: #333333 !important;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 14px;
+}
+.resultado .listado {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.resultado .beneficio {
+    margin-bottom: 1rem;
+}
+.resultado .dudas .beneficio {
+    margin-top: 2rem;
+}
+
+.resultado .dudas {
+    margin-top: 2rem;
+}
+
+.resultado .dudas p {
+    width: 84%;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+.resultado .mobile .dudas p {
+    line-height: 21px;
+}
+
+.resultado .mobile .container-title h1.green {
+    font-size: 38px;
+}
+
+.resultado .listado .icon {
+    position: relative;
+    left: 0%;
+    top: -6%;
+    width: 8%;
+    margin-right: 0.7rem;
+}
+
+.resultado .btn {
+    width: 70%;
+    font-size: 16px;
+    margin-top: 3rem;
+}
+.resultado .mobile .sueldo .btn {
+    width: 80%;
+    font-size: 14px;
+}
+
+.resultado .btn.purple {
+    background-color: #82388b;
+    width: 50%;
+    font-size: 16px;
+    margin-top: 2rem;
+}
+
+.resultado .btn.blue {
+    background-color: #4297de;
+    color: #ffffff !important;
+    width: 65%;
+    font-size: 16px;
+    margin-top: 2rem;
+}
+
+.resultado .desktop .purple {
+    width: fit-content;
+    padding: 0.5rem 2rem;
+}
+
+.resultado .mujer {
+    width: 100px;
+    right: -34px;
+    top: 28px;
+}
+.resultado .mobile .mujer {
+    right: -10px;
+    top: -28px;
+}
+
+.resultado .dudas {
+    margin-top: 10rem;
+}
+.resultado .mobile .dudas {
+    margin-top: 8rem;
+}
+.resultado .desktop .ofrecemos {
+    margin: 10rem 0rem 0rem 0rem;
+}
+.resultado .desktop .card {
+    width: 100% !important;
+}
+.resultado .card {
+    width: 14rem !important;
+    margin: 2rem;
+}
+.resultado .desktop .ofrecemos .card-header {
+    justify-content: center;
+    border: none;
+}
+
+.resultado .desktop .ofrecemos .card-header .icon {
+    width: 30%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+.resultado .desktop .ofrecemos .card-body p {
+    width: 100%;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.resultado .ofrecemos p {
+    margin: 0;
+    width: 70%;
+    font-size: 14px;
+}
+
+.resultado .ofrecemos .icon {
+    border-radius: 50px;
+    width: 8%;
+    height: 9%;
+}
+.resultado .mobile .ofrecemos .icon {
+    width: 17%;
+    height: 16%;
+}
+
+.resultado .ofrecemos .beneficio {
+    display: inline-flex;
+}
+
+.resultado .beneficio .rentabilidad {
+    background-color: #4297de;
+}
+
+.resultado .beneficio .comisiones {
+    background-color: #f7931e;
+}
+
+.resultado .beneficio .sac {
+    background-color: #72b500;
+}
+.resultado .mobile .beneficio .sac {
+    width: 14% !important;
+    height: 14% !important;
+}
+.resultado .bloque.desktop {
+    margin: 2rem;
+}
+.resultado .bloque.desktop img {
+    position: relative;
+    left: 0%;
+    top: 0%;
+    width: 45%;
+}
+
+.resultado .desktop .dudas img {
+    width: 17%;
+}
+
+.resultado .container-title h1.green {
+    color: #72b500;
+    display: flex;
+    align-items: baseline;
+    letter-spacing: 3px;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 50px;
+}
+.resultado .container-title {
+    width: 600px;
+}
+
+.resultado .container-title h1 span {
+    color: #72b500;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.resultado .textosFloating p {
+    display: inline;
+    margin: 2rem;
+}
+
+.flecha img {
+    width: 10%;
+}
+.resultado .txtDesktop.parrafo1 {
+    margin-left: 10%;
+    margin-top: 9%;
+}
+.resultado .txtDesktop.parrafo2 {
+    margin: 0;
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+@media (max-width: 62em) {
+    .container-title {
+        padding: 0;
+    }
+    .resultado .card {
+        margin: 1rem;
+    }
+}
+@media (max-width: 48em) {
+    .resultado .container-title h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 36em) {
+    .resultado .mobile .container-title {
+        margin: 1rem;
+    }
+    .resultado .ofrecemos p {
+        width: 100%;
+    }
+    .resultado .dudas p {
+        width: 100%;
+    }
+    .solicitud img {
+        width: 60%;
+    }
+    .solicitud .container-title {
+        padding: 1rem;
+    }
+}
+@media (max-width: 24em) {
+    .resultado .mobile .container-title {
+        margin: 0.5rem;
+    }
+    .resultado .btn {
+        width: 90% !important;
+    }
+    .resultado .mujer {
+        width: 80px;
+        top: 2.3rem;
+        right: -2rem;
+    }
+    .resultado .sueldo .beneficio img {
+        width: 7%;
+    }
+    .resultado .container-title p {
+        font-size: 14px;
+    }
+    .resultado .container-title h1 {
+        font-size: 2rem;
+    }
+}
+
+.solicitud .container-block {
+    text-align: center;
+}
+.solicitud .container-block img {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+.solicitud .container-title {
+    background-color: #ffffff;
+}
+.solicitud .container-title h5 {
+    color: #333333;
+}
+.solicitud .container-title p {
+    color: #54575c;
+    font-family: Roboto, sans-serif;
+    line-height: 21px;
+}

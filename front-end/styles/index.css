@@ -1,0 +1,89 @@
+.calculadora .abrirApv img {
+    width: 5%;
+}
+
+.calculadora .container-title h1 {
+    margin: 1.5rem;
+}
+
+.wizardForm img {
+    margin-right: -8rem;
+}
+
+.wizardForm .card-body {
+    margin-top: 1.2rem;
+}
+
+.wizardForm .card-body p {
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    margin-left: 14px;
+}
+
+.wizardForm form input {
+    background: #FFFFFF;
+    border: 1px solid #999999;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 449px;
+    height: 52.88px;
+}
+
+.wizardForm form small {
+    margin-top: 5px;
+    color: #54575C;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.wizardForm form button {
+    margin: 1rem;
+    padding: 0.4rem 3rem;
+    margin-bottom: 2rem;
+}
+
+.regimenes {
+    margin-top: 10rem;
+}
+
+.regimenes h2 {
+    font-size: 36px;
+    margin-bottom: 5rem;
+}
+
+.regimenes .card{
+    max-height: 488px;
+    height: 400px;
+}
+
+.regimenes .card-header {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 24px;
+    color: #333333;
+    padding: 2rem;
+    border: none;
+}
+
+.regimenes .card-text{
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.regimenes .card-link{
+    color: #0B7AC7;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+@media (max-width: 36em){
+    .wizardForm form input{
+        width: 100%;
+    }
+    .wizardForm .card-body{
+        padding: 0.25rem;
+    }
+}
