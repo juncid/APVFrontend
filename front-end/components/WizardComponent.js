@@ -65,7 +65,7 @@ export const Wizard = ({ children, initialValues, onSubmit }) => {
                                             <button
                                                 type="submit"
                                                 id="calcular"
-                                                className="btn btn-lg btn-block"
+                                                className="btn btn-lg btn-block purple"
                                                 disabled={!(formik.isValid && formik.dirty)}
                                             >
                                                 {stepNumber >0 ? (stepNumber > 1 ? 'Calcular': 'Continuar') : 'Comenzar'}
@@ -78,8 +78,8 @@ export const Wizard = ({ children, initialValues, onSubmit }) => {
                     </div>
                 </div>
             </div>
-            <div className="col-lg-2 ">
-                {stepNumber > 0 ? <img src={joven2} alt="joven modelo 2"/> : <img src={joven} alt="joven modelo"/>}
+            <div className="col-md-2 desktop">
+                {stepNumber > 0 ? <img src={joven2} alt="joven modelo 2"/> : <img src={joven2} alt="joven modelo"/>}
             </div>
         </div>
     );

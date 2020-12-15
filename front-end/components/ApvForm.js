@@ -31,10 +31,8 @@ const APVForm = (props) => {
     const handleShow = () => setModalShow(true);
 
     return (
-        <div>
-            <section>
-                <div>
-                    <Wizard
+        <div className='wizardForm'>
+            <Wizard
                         initialValues={initialValues}
                         onSubmit={values => {
                             const headers = {
@@ -345,8 +343,6 @@ const APVForm = (props) => {
                             </div>
                         </WizardStep>
                     </Wizard>
-                </div>
-            </section>
         </div>
     );
 };
