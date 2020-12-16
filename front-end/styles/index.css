@@ -29,6 +29,13 @@
     height: 52.88px;
 }
 
+.wizardForm form .form-check-label input{
+    height: 16px;
+    width: 16px;
+    margin-right: 8px;
+    position: relative;
+}
+
 .wizardForm form small {
     margin-top: 5px;
     color: #54575C;
@@ -53,9 +60,12 @@
     margin-bottom: 5rem;
 }
 
-.regimenes .card{
+.regimenes .card {
     max-height: 488px;
     height: 400px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
 }
 
 .regimenes .card-header {
@@ -67,23 +77,85 @@
     border: none;
 }
 
-.regimenes .card-text{
+.regimenes .card-text {
     font-family: Poppins, sans-serif;
     font-size: 20px;
     line-height: 40px;
 }
 
-.regimenes .card-link{
+.regimenes .card-link {
     color: #0B7AC7;
     font-size: 18px;
     line-height: 24px;
 }
 
-@media (max-width: 36em){
-    .wizardForm form input{
+@media (max-width: 36em) {
+    .home p{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .home h1{
+        font-size: 24px;
+        line-height: 28px;
+    }
+    .home h2{
+        font-size: 20px;
+        line-height: 120%;
+    }
+    .home small{
+        font-size: 12px !important;
+    }
+    .wizardForm form input {
         width: 100%;
     }
-    .wizardForm .card-body{
+    .wizardForm .card-body {
         padding: 0.25rem;
+    }
+    .calculadora .header{
+        z-index: 1;
+    }
+    .background {
+        position: absolute;
+        top: -64px;
+        right: -15px;
+        left: -15px;
+    }
+    .calculadora .container-title h1 {
+        color: #FFFFFF;
+    }
+    .calculadora .container-title p {
+        color: #FFFFFF;
+        font-weight: 300;
+        font-weight: normal;
+    }
+
+    .regimenes h2{
+    margin-bottom: 2rem;
+    }
+
+    .regimenes .card {
+        height: fit-content;
+        margin-bottom: 1rem;
+    }
+    
+    .regimenes .card-header {
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .regimenes .card-body {
+        padding-top: 0;
+    }
+    
+    .regimenes .card-text {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    
+    .regimenes .card-link {
+        font-size: 16px;
+    }
+    .wizardForm form .form-check-label{
+        padding: 0;
     }
 }

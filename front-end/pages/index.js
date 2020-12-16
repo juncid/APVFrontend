@@ -3,6 +3,7 @@ import ahorro from "../public/assets/svg/ahorro.svg"
 import React, { useEffect, useState } from "react";
 import {Button, Card} from "react-bootstrap";
 import ampolleta from "../public/assets/svg/ampolleta.svg";
+import backgroundMobile from "../public/assets/svg/backgroundMobile.svg";
 import APVForm from "../components/ApvForm";
 import axios from 'axios';
 import Link from "next/link";
@@ -11,22 +12,23 @@ export default function Home(props) {
 const bearer = props.bearer;
 
   return (
-      <div className="container">
+      <div className="container home">
           <Head>
               <title>Aumenta tu Sueldo | Solicitud de Contacto | AFP Modelo</title>
               <meta name="description" content="Aumenta tu sueldo líquido, pagando una menor comisión de AFP. Simula tu aumento de sueldo al cambiarte a AFP Modelo." />
               <meta name="robots" content="noindex, follow" />
           </Head>
-          <div className="background">
+          <div>
               <section>
                   <div className="row w-100 container-padre calculadora">
-                      <div className="col-12 text-center">
+                      <div className="col-12 text-center header">
                           <img src={ampolleta} alt="ampolleta" />
                           <div className='container-title title'>
                               <h1>¿Por qué abrir un APV?</h1>
                               <p>El APV te permite complementar tus ahorros y/o compensar períodos no cotizados, para mejorar tu pensión. Dependiendo del régimen tributario que elijas podrás recibir un aporte fiscal o rebajar lo ahorrado de tu renta tributable.</p>
                           </div>
                       </div>
+                      <img src={backgroundMobile} alt="background" className='background mobile'/>
                       <APVForm token={bearer} />
                   </div>
               </section>
@@ -62,7 +64,6 @@ const bearer = props.bearer;
                       </div>
                   </div>
               </section>
-
           </div>
       </div>
   )
