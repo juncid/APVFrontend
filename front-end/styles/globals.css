@@ -122,6 +122,12 @@ section {
   color: #ffffff;
 }
 
+.disclaimer-modal{
+  font-family: 'Roboto';
+  font-size: 12px;
+  text-align: justify;
+}
+
 /**********************Formulario**********************/
 .form {
   margin-top: 3rem;

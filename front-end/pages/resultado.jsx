@@ -13,23 +13,32 @@ export default function Resultado (props){
     const [modalShow, setModalShow] = useState(false);
     const handleClose = () => setModalShow(false);
     const handleShow = () => setModalShow(true);
+    const [regimenData, setRegimenData] = useState({});
 
+    useEffect(()=>{
+        setRegimenData(props.data);
+    },[]);
 
-    const sueldoLiquido=props.data.sueldoLiquidoConsulta;
-    const ahorroMensual=props.data.aporteApv
-    let recomendacionApv = props.data.recomendacionApv;
+    useEffect(()=>{
+        console.log(regimenData);
+    },[regimenData]);
+
+    
+    const sueldoLiquido=regimenData.sueldoLiquidoConsulta !== undefined && regimenData.sueldoLiquidoConsulta;
+    const ahorroMensual=regimenData.aporteApv !== undefined && regimenData.aporteApv;
+    let recomendacionApv = regimenData.recomendacionApv !== undefined && regimenData.recomendacionApv;
     let beneficio = 0;
     let total = 0;
     let texto_regimen = '';
 
     if( recomendacionApv === 'A') {
 
-        beneficio = props.data.beneficioRegA;
+        beneficio = regimenData.beneficioRegA;
         total = ahorroMensual + beneficio;
         texto_regimen='En  base a tu renta mensual y el monto del aporte quieres realizar el 15% de bonificación por parte del Estado es el que más te conviene.'
     } else if(recomendacionApv === 'B') {
-        beneficio = props.data.beneficioRegB;
-        total = props.data.sueldoLiquidoConApvregB;
+        beneficio = regimenData.beneficioRegB;
+        total = regimenData.sueldoLiquidoConApvregB;
         texto_regimen='En  base a tu renta mensual y el monto del aporte quieres realizar el descuento de tu base tributaria es mayor al aporte del 15% de bonificación del régimen A.'
     }
 
@@ -119,7 +128,7 @@ export default function Resultado (props){
                             <ResultadoModal
                                                 show={modalShow}
                                                 onHide={handleClose}
-                                                data = {props.data}
+                                                data = {regimenData !== undefined && regimenData}
                             />
                         </Card.Body>
                     </Card>
