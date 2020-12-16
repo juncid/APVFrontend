@@ -3,7 +3,7 @@ import ahorro from "../public/assets/svg/ahorro.svg"
 import React, { useEffect, useState } from "react";
 import {Button, Card} from "react-bootstrap";
 import ampolleta from "../public/assets/svg/ampolleta.svg";
-import backgroundMobile from "../public/assets/svg/backgroundMobile.svg";
+import backgroundMobile from "../public/assets/svg/mobiles/backgroundMobile.svg";
 import APVForm from "../components/ApvForm";
 import axios from 'axios';
 import Link from "next/link";
