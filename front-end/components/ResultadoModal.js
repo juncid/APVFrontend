@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Button, Table } from "react-bootstrap";
 
 export default function ResultadosModal(props) {
+    
     return (
         <div>
             <Modal
@@ -36,6 +37,46 @@ export default function ResultadosModal(props) {
                                         <td>Ahorro mensual:</td>
                                         <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
                                         <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Descuentos legales:</td>
+                                        <td className="text-right">${props.data.sueldoLiquidoConsulta.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.sueldoLiquidoConsulta.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Renta Tributable:</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tasa de impuestos:</td>
+                                        <td className="text-right">${props.data.sueldoLiquidoConsulta.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.sueldoLiquidoConsulta.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Impuestos sin APV:</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Impuestos con APV:</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bonificación fiscal:</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Descuento tributario:</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.aporteApv.toLocaleString("es-CL")}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nuevo sueldo líquido:</td>
+                                        <td className="text-right">${props.data.sueldoLiquidoConApvregA.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${props.data.sueldoLiquidoConApvregB.toLocaleString("es-CL")}</td>
                                     </tr>
                                     </tbody>
                                 </Table>
