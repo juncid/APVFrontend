@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import mujerSAC from "../public/assets/svg/mujersac.svg"
 import ChanchitoA from "../public/assets/svg/chanchitoa.svg";
 import ChanchitoB from "../public/assets/svg/chanchitob.svg"
@@ -6,23 +6,31 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchposts} from "../store/actions/postAction";
 import {Card, Col, Table} from "react-bootstrap";
 import axios from "axios";
+import ResultadoModal from '../components/ResultadoModal';
 
 export default function Resultado (props){
+
+    const [modalShow, setModalShow] = useState(false);
+    const handleClose = () => setModalShow(false);
+    const handleShow = () => setModalShow(true);
+
 
     const sueldoLiquido=props.data.sueldoLiquidoConsulta;
     const ahorroMensual=props.data.aporteApv
     let recomendacionApv = props.data.recomendacionApv;
-    recomendacionApv = 'B'
     let beneficio = 0;
     let total = 0;
+    let texto_regimen = '';
 
     if( recomendacionApv === 'A') {
 
         beneficio = props.data.beneficioRegA;
         total = ahorroMensual + beneficio;
+        texto_regimen='En  base a tu renta mensual y el monto del aporte quieres realizar el 15% de bonificación por parte del Estado es el que más te conviene.'
     } else if(recomendacionApv === 'B') {
         beneficio = props.data.beneficioRegB;
         total = props.data.sueldoLiquidoConApvregB;
+        texto_regimen='En  base a tu renta mensual y el monto del aporte quieres realizar el descuento de tu base tributaria es mayor al aporte del 15% de bonificación del régimen A.'
     }
 
     const headers = {
@@ -55,9 +63,9 @@ export default function Resultado (props){
                 <div className="col-md-8 mx-auto desktop flex-column">
                     <img
                         src={recomendacionApv === 'A' ? ChanchitoA : ChanchitoB }
-                        alt={recomendacionApv === 'A' ? "regimen A"  : "regimen B" }/>
+                        alt={recomendacionApv === 'A' ? "regimen A"  : "regimen B" }/>   
                     <h1>Te recomendamos el régimen {recomendacionApv}</h1>
-                    <p>En  base a tu renta mensual y el monto del aporte quieres realizar el 15% de bonificación por parte del Estado es el que más te conviene.</p>
+                    <p>{texto_regimen}</p>
                 </div>
             </div>
             <div className="row">
@@ -72,30 +80,30 @@ export default function Resultado (props){
                                     <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Regimen {recomendacionApv}</th>
+                                        <th className="text-right">Regimen {recomendacionApv}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>Sueldo líquido:</td>
-                                        <td>${sueldoLiquido.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${sueldoLiquido.toLocaleString("es-CL")}</td>
                                     </tr>
                                     <tr>
                                         <td>Ahorro mensual:</td>
-                                        <td>${ahorroMensual.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${ahorroMensual.toLocaleString("es-CL")}</td>
                                     </tr>
                                     <tr>
-                                        <td>{recomendacionApv === 'A' ? 'Bonificación fiscal:' : 'Descuento tributario:'}</td>
-                                        <td>${beneficio.toLocaleString("es-CL")}</td>
+                                        <td className="green-tabla">{recomendacionApv === 'A' ? 'Bonificación fiscal:' : 'Descuento tributario:'}</td>
+                                        <td className="text-right green-tabla">${beneficio.toLocaleString("es-CL")}</td>
                                     </tr>
                                     <tr>
                                         <td>{recomendacionApv === 'A' ? 'Total ahorro:' : 'Nuevo sueldo líquido:'}</td>
-                                        <td>${total.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${total.toLocaleString("es-CL")}</td>
                                     </tr>
                                     </tbody>
                                 </Table>
                             </Card.Text>
-                            <Card.Link href="#">Ver detalles de mi simulación</Card.Link>
+                            <Card.Link onClick={handleShow}>Ver detalles de mi simulación</Card.Link>
                         </Card.Body>
                     </Card>
                 </div>
@@ -107,7 +115,12 @@ export default function Resultado (props){
                             <Card.Text>
                                 <p>En este el Estado te entrega una bonificación de un 15% de lo que ahorras en el año con un tope de 6 UTM anuales. Por ejemplo, si ahorras $100.000 recibirás $15.000 adicionales, por lo que tu cuenta tendra $115.000.</p>
                             </Card.Text>
-                            <Card.Link href="#">Saber Más</Card.Link>
+                            <Card.Link>Saber Más</Card.Link>
+                            <ResultadoModal
+                                                show={modalShow}
+                                                onHide={handleClose}
+                                                data = {props.data}
+                            />
                         </Card.Body>
                     </Card>
                 </div>
@@ -137,8 +150,9 @@ export default function Resultado (props){
 export async function getServerSideProps(context) {
     const baseUrl='https://apvbackendmanager.azurewebsites.net/'
     const apiToken = 'ApvSimulacion/obtenerporid';
+    const { id } = context.query;
     const response = await axios
-        .get(`${baseUrl}${apiToken}?id=7`);
+        .get(`${baseUrl}${apiToken}?id=${id}`);
     const data = await response.data
     console.log(data);
     if (!data) {

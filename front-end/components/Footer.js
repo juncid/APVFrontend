@@ -29,29 +29,8 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            <style jsx>
-                {`
-                .footer * {
-                font-size: 10px;
-                color: #ffffff;
-            }
-                .disclaimer {
-                font-size: 10px;
-            }
-
-                .footer p {
-                padding: 1.5rem;
-                margin: 0;
-            }
-
-                .footer {
-                background: #0c4c72;
-                position: relative;
-                bottom: 0;
-            }
-                `}
-            </style>
-            <p className="disclaimer text-white text-justify">
+            <div className="disclaimer text-white text-justify">
+            <p >
                 AFP Modelo no se hace cargo de la veracidad de los datos que ingrese el usuario a
                 esta calculadora. La variación de sueldo líquido aproximada después de impuestos,
                 sin asignaciones de colación y/o movilización. Tabla de impuestos de segunda
@@ -67,6 +46,7 @@ const Footer = () => {
                 afiliados dependientes, independientes y voluntarios. Fuente: Superintendencia de
                 Pensiones.
             </p>
+            </div>
         </footer>
     );
 };

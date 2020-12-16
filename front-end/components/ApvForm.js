@@ -60,7 +60,7 @@ const APVForm = (props) => {
                                     if (data.idSimulacion) {
                                         router.push({
                                             pathname: "/resultado",
-                                            as: "resultado",
+                                            as: "resultado/",
                                             query: {
                                                 id: data.idSimulacion,
                                             },
