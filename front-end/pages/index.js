@@ -15,9 +15,7 @@ const bearer = props.bearer;
 
 if (typeof window !== "undefined") {
     const sessionId = uuidv4();
-
     localStorage.setItem('sessionId', sessionId);
-    
 }
 
   return (
