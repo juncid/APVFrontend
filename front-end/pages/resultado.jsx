@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import mujerSAC from "../public/assets/svg/mujersac.svg"
 import ChanchitoA from "../public/assets/svg/chanchitoa.svg";
 import ChanchitoB from "../public/assets/svg/chanchitob.svg"
+import {Formik, useFormik, Form} from "formik";
+import * as Yup from 'yup';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchposts} from "../store/actions/postAction";
 import {Card, Col, Table} from "react-bootstrap";
@@ -14,6 +16,69 @@ export default function Resultado (props){
     const handleClose = () => setModalShow(false);
     const handleShow = () => setModalShow(true);
     const [regimenData, setRegimenData] = useState({});
+
+    const initialValues = {
+        ahorro: ''
+    }
+
+    const handleSubmit = values => {
+        
+        const nombre = regimenData.nombre !== undefined && regimenData.nombre;
+        const rutPrimero = regimenData.rut !== undefined && regimenData.rut;
+        const rutDv = regimenData.rutDv !== undefined && regimenData.rutDv;
+        const rut = rutPrimero+"-"+rutDv;
+        const correo = regimenData.correo !== undefined && regimenData.correo;
+        const celular = regimenData.celular !== undefined && regimenData.celular;
+        const sueldo = regimenData.sueldoLiquidoConsulta !== undefined && regimenData.sueldoLiquidoConsulta;
+
+
+        const headers = {
+            "Content-Type": "application/json"
+        };
+
+        const url = 'https://apvbackendmanager.azurewebsites.net/ApvSimulacion/ingresarsimulacion';
+
+        const body = {
+            nombre: nombre,
+            rut: rut,
+            correo: correo,
+            celular: celular,
+            sueldo: sueldo,
+            ahorro: values.ahorro
+        };
+
+        axios
+            .post(url, body, { headers: headers })
+            .then((response) => {
+                let data = response.data;
+
+                if (data.idSimulacion) {
+                    setRegimenData(data);
+                }
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
+
+    const validationSchema = Yup.object({
+        ahorro: Yup
+            .string()
+            .matches(/^[0-9]+$/, `Ingrese el monto en pesos que desea ahorrar desde $1.000.`)
+            .test('Sueldo-validacion', `Ingrese un monto desde $1.000.`, function (value) {
+                console.log(value)
+                return (value >= 1000 )
+            })
+            .required('Por favor ingrese el monto que desea ahorrar desde $1.000.'),
+    });
+
+
+    const formik = useFormik({
+       initialValues,
+       handleSubmit,
+       validationSchema
+    });
 
     useEffect(()=>{
         setRegimenData(props.data);
@@ -41,10 +106,6 @@ export default function Resultado (props){
         total = regimenData.sueldoLiquidoConApvregB;
         texto_regimen='En  base a tu renta mensual y el monto del aporte quieres realizar el descuento de tu base tributaria es mayor al aporte del 15% de bonificación del régimen A.'
     }
-
-    const headers = {
-        "Content-Type": "application/json"
-    };
 
     function contactarme() {
         body_eventos.Evento_id = 2;
@@ -78,7 +139,7 @@ export default function Resultado (props){
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-6 mx-auto desktop d-flex">
+                <div className="col-md-6 offset-md-1 desktop d-flex">
                     <Card>
                         <Card.Body>
                             <Card.Text>
@@ -113,25 +174,72 @@ export default function Resultado (props){
                                 </Table>
                             </Card.Text>
                             <Card.Link onClick={handleShow}>Ver detalles de mi simulación</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="col-md-2 mx-auto desktop d-flex">
-
-                    <Card>
-                        <Card.Header>Régimen A</Card.Header>
-                        <Card.Body>
-                            <Card.Text>
-                                <p>En este el Estado te entrega una bonificación de un 15% de lo que ahorras en el año con un tope de 6 UTM anuales. Por ejemplo, si ahorras $100.000 recibirás $15.000 adicionales, por lo que tu cuenta tendra $115.000.</p>
-                            </Card.Text>
-                            <Card.Link>Saber Más</Card.Link>
                             <ResultadoModal
-                                                show={modalShow}
-                                                onHide={handleClose}
-                                                data = {regimenData !== undefined && regimenData}
+                                show={modalShow}
+                                onHide={handleClose}
+                                data = {regimenData !== undefined && regimenData}
                             />
                         </Card.Body>
                     </Card>
+                </div>
+                <div className="col-md-3 desktop d-flex flex-column">
+                    <div className="row">
+                    <Card>
+                        <Card.Header>Calcular tu APV con otro monto:</Card.Header>
+                        <Card.Body>
+                            <Formik
+                                initialValues={initialValues}
+                                onSubmit={handleSubmit}
+                                validationSchema={validationSchema}
+                            >
+                                {(formik) => (
+                                    <Form>
+                                        <div className="form-group input-wrapper">
+                                            <input
+                                                type="text"
+                                                className={`form-control form-control-lg ${
+                                                    formik.touched.ahorro ? (formik.errors.ahorro ? "is-invalid" : "is-valid") : ""}`}
+                                                id="ahorro"
+                                                name="ahorro"
+                                                aria-describedby="ahorroAyuda"
+                                                placeholder="Ahorro Mensual"
+                                                {...formik.getFieldProps('ahorro')}
+                                            />
+                                            <label
+                                                htmlFor="ahorro"
+                                                className="control-label"
+                                            >
+                                                Sueldo Liquido
+                                            </label>
+                                            <small
+                                                id="ahorroAyuda"
+                                                className={`form-text ${formik.touched.ahorro && formik.errors.ahorro && 'is-invalid' }`}
+                                            >
+                                                {formik.touched.ahorro && formik.errors.ahorro}
+                                            </small>
+                                    </div>
+                                    <div className="d-flex justify-content-center">
+                                        <div className="col justify-content-center d-flex">
+                                            <button
+                                                type="submit"
+                                                id="calcular"
+                                                className="btn btn-lg btn-block"
+                                                disabled={!(formik.isValid && formik.dirty)}
+                                            >
+                                                Calcular
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </Form>
+                                )}
+                            </Formik>
+                        </Card.Body>
+                    </Card>
+                    </div>
+                    <div className="row">
+                    <p><span>*Renta tributable contempla descuentos legales, ahorro al fondo de pensiones (10%), comisión AFP Modelo (0,77%) y salud (7%).**Bonificación fiscal de un 15% de tu ahorro voluntario mensual con un tope de 6 UTM anuales.</span></p>
+                    </div>
+                    
                 </div>
             </div>
             <div className="row w-100 container-padre dudas">

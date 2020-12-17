@@ -20,19 +20,17 @@ export default function RegimenA() {
                         <div className='parrafo'>
                             <h2>Estas son las características del régimen:</h2>
                             <br />
-                            <p>En este régimen el monto que aportas en tu APV es descontado de la base tributaria, por lo que tienes un incentivo para el ahorro, al pagar menos impuestos.</p>
-                            <p>El Régimen B se recomienda habitualmente a quienes reciben un sueldo mayor a los 3,5 millones mensuales.  No existe un mínimo para aportar, pero sí un máximo de 600 UF anuales en todo el sistema.</p>
-                            <p>Dependiendo de cómo hagas tus depósitos el beneficio tributario lo puedes ver en tu liquidación de sueldo mes a mes o en la operación renta en abril de cada año.
-                            Si bien los fondos tienen como fin aportar a tu jubilación, puedes hacer retiro de ellos, pero se descontará un 15% cada retiro que hagas a modo de retención como pago provisional de impuestos para la operación renta del año siguiente.</p>
+                            <p>En este régimen el Estado te bonifica con un 15% de lo que ahorras en tu APV con un tope de 6 UTM (aproximadamente 306.000) de lo que ahorras cada año. Por lo tanto si aportas 2 millones en APV durante el año puedes obtener el máximo de esta bonificación.</p>
+                            <p>El Régimen A se recomienda habitualmente a quienes reciben un sueldo menor a los 3,5 millones mensuales.  No existe un mínimo para aportar, por lo tanto puedes empezar ahora  para mejorar tu pensión, mientras antes empieces más tiempo tendrá tu inversión para rentar.</p>
+                            <p>Si bien los fondos tienen como fin aportar a tu jubilación, puedes hacer retiro de ellos, pero se descontará un 15% cada retiro que hagas para devolver el aporte que el fisco realizó en tu cuenta. </p>
                             <p>En caso que quieras hacer un ahorro que puedas retirar, te recomendamos que abras una Cuenta 2, que te permite invertir en los mismos multifondos de tu AFP con una baja comisión de administración.</p>
-
                         </div>
                         <div className='parrafo'>
                             <h2>Esto quiere decir: </h2>
                             <br />
                             <p>
-                                <span>El ahorro descuenta de tu renta tributable</span><br />
-                                <span>No hay un mínimo de aporte y tiene un máximo de 600 UF anuales.</span><br />
+                                <span>El estado bonifica hasta 306.000 al año (6 UTM).</span><br />
+                                <span>No hay un mínimo de aporte.</span><br />
                                 <span>Tiene como objetivo aumentar tu pensión.</span><br />
                             </p>
                         </div>
