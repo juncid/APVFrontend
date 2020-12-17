@@ -346,6 +346,10 @@ input[type="checkbox"]+label {
     font-size: 20px!important;
     line-height: 120%;
   }
+  h3{
+    font-size: 14px!important;
+    line-height: 21px;
+  }
   p {
     font-size: 14px!important;
     line-height: 21px;

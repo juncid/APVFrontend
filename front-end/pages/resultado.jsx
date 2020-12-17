@@ -85,7 +85,6 @@ export default function Resultado (props){
     },[]);
 
     useEffect(()=>{
-        console.log(regimenData);
     },[regimenData]);
 
     

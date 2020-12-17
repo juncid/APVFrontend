@@ -1,4 +1,37 @@
-.regimenA .parrafo{
+.regimenPage .parrafo{
     margin-top: 3rem;
     margin-bottom: 2rem;
+}
+
+@media (max-width: 36em){
+    .regimenPage .background{
+        left: 0;
+    }
+
+    .regimenPage .parrafo{
+        margin: 0;
+    }    
+
+    .regimenPage .containerParrafo{
+        background-color: #ffffff;
+        box-shadow: 0px 18px 79px rgba(47, 45, 45, 0.0363771), 0px 11.3261px 19.6823px rgba(47, 45, 45, 0.0604865), 0px 2.63109px 2.95796px rgba(47, 45, 45, 0.11);
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .regimenPage .title{
+        z-index: 1;
+        margin-left: 1rem !important;
+    }
+
+    .regimenPage .title h1, .regimenPage .title h3{
+        color: #ffffff !important;
+    }
+    .regimenPage .title h3{
+        width: 49%;
+    }
+    .regimenPage  .contenedor{
+        align-items: center;
+    }
 }
