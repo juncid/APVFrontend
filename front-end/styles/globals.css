@@ -137,6 +137,10 @@ section {
   font-family: 'Roboto';
   font-size: 12px;
   text-align: justify;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  color: #54575C !important;
 }
 
 /**********************Formulario**********************/

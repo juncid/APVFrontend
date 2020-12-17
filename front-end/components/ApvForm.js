@@ -252,7 +252,7 @@ const APVForm = (props) => {
                                             />
                                             <small
                                                 id="correoAyuda"
-                                                className={`form-text ${touched.correo && errors.correo ? "is-invalid" : ""}`}
+                                                className={`form-text ${touched.correo && errors.correo & "is-invalid"}`}
                                             >
                                                 {touched.correo && errors.correo
                                                     ? errors.correo
@@ -287,7 +287,7 @@ const APVForm = (props) => {
                                             <small
                                                 id="celularAyuda"
                                                 className={`form-text ${
-                                                    touched.celular && errors.celular ? "is-invalid" : ""}`}
+                                                    touched.celular && errors.celular && "is-invalid"}`}
                                             >
                                                 {touched.celular && errors.celular ? errors.celular : "Ej. 9111223XX"}
                                             </small>

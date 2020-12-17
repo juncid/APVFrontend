@@ -3,22 +3,22 @@ import { Modal, Button, Table } from "react-bootstrap";
 
 export default function ResultadosModal(props) {
 
-    const sueldoLiquido = props.data.sueldoLiquidoConsulta !== undefined && props.data.sueldoLiquidoConsulta;
-    const ahorroMensual = props.data.aporteApv !== undefined && props.data.aporteApv;
+    const sueldoLiquido = props.data.sueldoLiquidoConsulta !== undefined && props.data.sueldoLiquidoConsulta.toLocaleString("es-CL");
+    const ahorroMensual = props.data.aporteApv !== undefined && props.data.aporteApv.toLocaleString("es-CL");
     const aporteAfp = props.data.aporteAfp !== undefined && props.data.aporteAfp;
     const aporteIsapre = props.data.aporteIsapre !== undefined && props.data.aporteIsapre;
     const seguroCesantia = props.data.seguroCesantia !== undefined && props.data.seguroCesantia;
     const comisionAfp = props.data.comisionAfp !== undefined && props.data.comisionAfp;
-    const descuentosLegales= (aporteAfp + aporteIsapre + seguroCesantia + comisionAfp);
-    const rentaTributable = props.data.sueldoTributario !== undefined && props.data.sueldoTributario;
-    const tasaImpuestoSegCat = props.data.tasaImpuestoSegCat !== undefined && props.data.tasaImpuestoSegCat;
-    const montoImpuestoSegCat = props.data.montoImpuestoSegCat !== undefined && props.data.montoImpuestoSegCat;
-    const impSegCatApvregA = props.data.impSegCatApvregA !== undefined && props.data.impSegCatApvregA;
-    const impSegCatApvregB = props.data.impSegCatApvregB !== undefined && props.data.impSegCatApvregB;
-    const beneficioRegA = props.data.beneficioRegA !== undefined && props.data.beneficioRegA;
-    const beneficioRegB = props.data.beneficioRegB !== undefined && props.data.beneficioRegB;
-    const sueldoLiquidoConApvregA = props.data.sueldoLiquidoConApvregA !== undefined && props.data.sueldoLiquidoConApvregA;
-    const sueldoLiquidoConApvregB = props.data.sueldoLiquidoConApvregB !== undefined && props.data.sueldoLiquidoConApvregB;
+    const descuentosLegales= Math.trunc(aporteAfp + aporteIsapre + seguroCesantia + comisionAfp).toLocaleString("es-CL");
+    const rentaTributable = props.data.sueldoTributario !== undefined && Math.trunc(props.data.sueldoTributario).toLocaleString("es-CL");
+    const tasaImpuestoSegCat = props.data.tasaImpuestoSegCat !== undefined && (props.data.tasaImpuestoSegCat * 1).toFixed(2);
+    const montoImpuestoSegCat = props.data.montoImpuestoSegCat !== undefined && Math.trunc(props.data.montoImpuestoSegCat).toLocaleString("es-CL");
+    const impSegCatApvregA = props.data.impSegCatApvregA !== undefined && Math.trunc(props.data.impSegCatApvregA).toLocaleString("es-CL");
+    const impSegCatApvregB = props.data.impSegCatApvregB !== undefined && Math.trunc(props.data.impSegCatApvregB).toLocaleString("es-CL");
+    const beneficioRegA = props.data.beneficioRegA !== undefined && props.data.beneficioRegA.toLocaleString("es-CL");
+    const beneficioRegB = props.data.beneficioRegB !== undefined && props.data.beneficioRegB.toLocaleString("es-CL");
+    const sueldoLiquidoConApvregA = props.data.sueldoLiquidoConApvregA !== undefined && props.data.sueldoLiquidoConApvregA.toLocaleString("es-CL");
+    const sueldoLiquidoConApvregB = props.data.sueldoLiquidoConApvregB !== undefined && props.data.sueldoLiquidoConApvregB.toLocaleString("es-CL");
 
     return (
         <div>
@@ -47,53 +47,53 @@ export default function ResultadosModal(props) {
                                     <tbody>
                                     <tr>
                                         <td>Sueldo líquido:</td>
-                                        <td className="text-right">${sueldoLiquido.toLocaleString("es-CL")}</td>
-                                        <td className="text-right">${sueldoLiquido.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${sueldoLiquido}</td>
+                                        <td className="text-right">${sueldoLiquido}</td>
                                     </tr>
                                     <tr>
                                         <td>Ahorro mensual:</td>
-                                        <td className="text-right">${ahorroMensual.toLocaleString("es-CL")}</td>
-                                        <td className="text-right">${ahorroMensual.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${ahorroMensual}</td>
+                                        <td className="text-right">${ahorroMensual}</td>
                                     </tr>
                                     <tr>
                                         <td>Descuentos legales:</td>
-                                        <td className="text-right">${descuentosLegales.toLocaleString("es-CL")}</td>
-                                        <td className="text-right">${descuentosLegales.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${descuentosLegales}</td>
+                                        <td className="text-right">${descuentosLegales}</td>
                                     </tr>
                                     <tr>
                                         <td>Renta Tributable:</td>
-                                        <td className="text-right">${rentaTributable.toLocaleString("es-CL")}</td>
-                                        <td className="text-right">${rentaTributable.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${rentaTributable}</td>
+                                        <td className="text-right">${rentaTributable}</td>
                                     </tr>
                                     <tr>
                                         <td>Tasa de impuestos:</td>
-                                        <td className="text-right">{tasaImpuestoSegCat * 100}%</td>
-                                        <td className="text-right">{tasaImpuestoSegCat * 100}%</td>
+                                        <td className="text-right">{tasaImpuestoSegCat}%</td>
+                                        <td className="text-right">{tasaImpuestoSegCat}%</td>
                                     </tr>
                                     <tr>
                                         <td>Impuestos sin APV:</td>
                                         <td className="text-right">$0</td>
-                                        <td className="text-right">${montoImpuestoSegCat.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${montoImpuestoSegCat}</td>
                                     </tr>
                                     <tr>
                                         <td>Impuestos con APV:</td>
-                                        <td className="text-right">${impSegCatApvregA.toLocaleString("es-CL")}</td>
-                                        <td className="text-right">${impSegCatApvregB.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${impSegCatApvregA}</td>
+                                        <td className="text-right">${impSegCatApvregB}</td>
                                     </tr>
                                     <tr>
                                         <td className="green-tabla">Bonificación fiscal:</td>
-                                        <td className="text-right green-tabla">${beneficioRegA.toLocaleString("es-CL")}</td>
+                                        <td className="text-right green-tabla">${beneficioRegA}</td>
                                         <td className="text-right green-tabla">$0</td>
                                     </tr>
                                     <tr>
                                         <td className="green-tabla">Descuento tributario:</td>
                                         <td className="text-right green-tabla">$0</td>
-                                        <td className="text-right green-tabla">${beneficioRegB.toLocaleString("es-CL")}</td>
+                                        <td className="text-right green-tabla">${beneficioRegB}</td>
                                     </tr>
                                     <tr>
                                         <td>Nuevo sueldo líquido:</td>
-                                        <td className="text-right">${sueldoLiquidoConApvregA.toLocaleString("es-CL")}</td>
-                                        <td className="text-right">${sueldoLiquidoConApvregB.toLocaleString("es-CL")}</td>
+                                        <td className="text-right">${sueldoLiquidoConApvregA}</td>
+                                        <td className="text-right">${sueldoLiquidoConApvregB}</td>
                                     </tr>
                                     </tbody>
                                 </Table>

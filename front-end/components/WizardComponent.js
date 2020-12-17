@@ -21,6 +21,7 @@ export const Wizard = ({ children, initialValues, onSubmit }) => {
     const next = values => {
         setSnapshot(values);
         setStepNumber(Math.min(stepNumber + 1, totalSteps - 1));
+        console.log(snapshot);
     };
 
 
