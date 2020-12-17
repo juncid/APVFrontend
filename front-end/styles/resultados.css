@@ -284,12 +284,7 @@
     .resultado .dudas p {
         width: 100%;
     }
-    .solicitud img {
-        width: 60%;
-    }
-    .solicitud .container-title {
-        padding: 1rem;
-    }
+    
 }
 @media (max-width: 24em) {
     .resultado .mobile .container-title {
@@ -314,21 +309,3 @@
     }
 }
 
-.solicitud .container-block {
-    text-align: center;
-}
-.solicitud .container-block img {
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-}
-.solicitud .container-title {
-    background-color: #ffffff;
-}
-.solicitud .container-title h5 {
-    color: #333333;
-}
-.solicitud .container-title p {
-    color: #54575c;
-    font-family: Roboto, sans-serif;
-    line-height: 21px;
-}

@@ -1,0 +1,40 @@
+.solicitud .txt {
+    width: 700px;
+    margin-top: 2rem;
+}
+
+.solicitud .txt h4 {
+    font-size: 32px;
+    line-height: 3px;
+    margin: 2.5rem;
+}
+
+.solicitud .txt p {
+    font-family: Poppins !important;
+    font-size: 20px !important;
+    line-height: 150% !important;
+}
+
+.solicitud .container-block {
+    text-align: center;
+}
+
+.solicitud .container-block img {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 36em) {
+    .solicitud .txt {
+        width: 100%;
+    }
+    .solicitud .txt h4 {
+        font-size: 20px;
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .solicitud .txt p {
+        font-size: 16px !important;
+    }
+}

@@ -267,6 +267,9 @@ input[type="checkbox"]+label {
 .volver:hover{
   text-decoration: none;
 }
+.volver img{
+  margin: 0 !important;
+}
 /**********************Fin formulario**********************/
 
 /**********************Inicio Footer**********************/
@@ -356,6 +359,9 @@ input[type="checkbox"]+label {
   .form {
     margin-top: 2rem;
     padding: 0;
+  }
+  .volver img{
+    margin: 0 !important;
   }
 }
 

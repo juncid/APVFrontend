@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import '../styles/index.css'
 import '../styles/Resultados.css'
 import '../styles/regimenes.css';
+import '../styles/solicitud.css';
 import Layout from "../components/Layout";
 import React from "react";
 import {Provider} from 'react-redux';

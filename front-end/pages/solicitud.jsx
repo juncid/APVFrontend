@@ -1,7 +1,9 @@
 import React from "react";
 import Head from "next/head";
-import contacto from "../public/assets/svg/contacto.svg"
-import {Col, Row, Button} from "react-bootstrap";
+import contacto from "../public/assets/svg/contacto.svg";
+import Link from 'next/link';
+import arrow from "../public/assets/svg/arrow.svg";
+import { Col, Row, Button } from "react-bootstrap";
 
 
 export default function solicitud() {
@@ -27,11 +29,11 @@ export default function solicitud() {
                             <div className="col-12 d-flex justify-content-center">
                                 <div className="container-block">
                                     <img src={contacto} alt="Contacto Ejecutivo" />
-                                    <div className="txtDesktop">
+                                    <div className="txt">
                                         <div className="container-title">
-                                            <h5>¡Tu solicitud fue enviada con éxito!</h5>
+                                            <h4>¡Tu solicitud fue enviada con éxito!</h4>
                                             <p>{dudas_texto}</p>
-                                            <div className="d-flex justify-content-center">
+                                            <div className="d-flex justify-content-center mb-5">
                                                 <button
                                                     type="button"
                                                     className="btn btn-lg btn-block mt-3"
@@ -41,6 +43,9 @@ export default function solicitud() {
                                                     Visitar sitio AFP Modelo
                                                 </button>
                                             </div>
+                                            <Link href="/" passHref>
+                                                    <a className='volver'>{' '}<img src={arrow} alt="arrow" />Volver atrás</a>
+                                                </Link>
                                         </div>
                                     </div>
                                 </div>
