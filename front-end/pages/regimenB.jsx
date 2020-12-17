@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
-import Link from 'next/link'
+import Link from 'next/link';
+import Head from "next/head";
 import mujerRegimenB from "../public/assets/svg/regimenb.svg";
 import arrow from "../public/assets/svg/arrow.svg"
 import React from "react";
@@ -9,6 +10,12 @@ import backgroundMobile from "../public/assets/svg/mobiles/regimenBmobileBackgro
 export default function RegimenB() {
 
     return (
+        <>
+        <Head>
+                <title>Ahorro Previsional Voluntario | Regimen B | AFP Modelo</title>
+                <meta name="description" content="Aumenta tu sueldo líquido, pagando una menor comisión de AFP. Simula tu aumento de sueldo al cambiarte a AFP Modelo." />
+                <meta name="robots" content="noindex, follow" />
+        </Head>
         <section>
             <div className="resultado regimenPage">
                 <div className="row">
@@ -41,7 +48,7 @@ Si bien los fondos tienen como fin aportar a tu jubilación, puedes hacer retiro
                             </div>
                         </div>
                         <Link href="/regimenA" passHref>
-                            <button type="button" className="btn btn-lg btn-block purple">Ver régimen B</button>
+                            <button type="button" className="btn btn-lg btn-block purple">Ver régimen A</button>
                         </Link>
                         <br />
                         <Link href="/" passHref>
@@ -58,5 +65,6 @@ Si bien los fondos tienen como fin aportar a tu jubilación, puedes hacer retiro
                 </div>
             </div>
         </section>
+        </>
     )
 }

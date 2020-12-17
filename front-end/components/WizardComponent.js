@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {Form, Formik} from "formik";
-import joven from "../public/assets/svg/joven.svg";
 import joven2 from "../public/assets/svg/joven2.svg"
 import Stepper from 'react-stepper-horizontal';
 
@@ -21,7 +20,6 @@ export const Wizard = ({ children, initialValues, onSubmit }) => {
     const next = values => {
         setSnapshot(values);
         setStepNumber(Math.min(stepNumber + 1, totalSteps - 1));
-        console.log(snapshot);
     };
 
 
@@ -65,7 +63,7 @@ export const Wizard = ({ children, initialValues, onSubmit }) => {
                                         <div className="col justify-content-center d-flex">
                                             <button
                                                 type="submit"
-                                                id="calcular"
+                                                id={stepNumber > 0 ? (stepNumber > 1 ? 'P3_lead' : 'P2_datos_personales') : 'P1_ingreso_renta_aporte'}
                                                 className="btn btn-lg btn-block purple"
                                                 disabled={!(formik.isValid && formik.dirty)}
                                             >
@@ -80,7 +78,7 @@ export const Wizard = ({ children, initialValues, onSubmit }) => {
                 </div>
             </div>
             <div className="col-md-2 desktop">
-                {stepNumber > 0 ? <img src={joven2} alt="joven modelo 2"/> : <img src={joven2} alt="joven modelo"/>}
+                {<img src={joven2} alt="joven modelo"/>}
             </div>
         </div>
     );

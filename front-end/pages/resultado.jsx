@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Head from "next/head";
 import mujerSAC from "../public/assets/svg/mujersac.svg"
 import ChanchitoA from "../public/assets/svg/chanchitoa.svg";
 import ChanchitoB from "../public/assets/svg/chanchitob.svg"
@@ -35,9 +36,7 @@ export default function Resultado (props){
         const headers = {
             "Content-Type": "application/json"
         };
-
-        const url = 'https://apvbackendmanager.azurewebsites.net/ApvSimulacion/ingresarsimulacion';
-
+        
         const body = {
             nombre: nombre,
             rut: rut,
@@ -48,7 +47,7 @@ export default function Resultado (props){
         };
 
         axios
-            .post(url, body, { headers: headers })
+            .post(props.urlIngresarSimulacion, body, { headers: headers })
             .then((response) => {
                 let data = response.data;
 
@@ -67,7 +66,6 @@ export default function Resultado (props){
             .string()
             .matches(/^[0-9]+$/, `Ingrese el monto en pesos que desea ahorrar desde $1.000.`)
             .test('Sueldo-validacion', `Ingrese un monto desde $1.000.`, function (value) {
-                console.log(value)
                 return (value >= 1000 )
             })
             .required('Por favor ingrese el monto que desea ahorrar desde $1.000.'),
@@ -126,6 +124,12 @@ export default function Resultado (props){
         "Nuestros ejecutivos pueden asesorarte en línea o vía teléfonica. Queremos ayudarte a resolver todas tus inquietudes o darte todas las opciones para tu traspaso.";
 
     return (
+        <>
+        <Head>
+                <title>Ahorro Previsional Voluntario | Resultado Simulación | AFP Modelo</title>
+                <meta name="description" content="Aumenta tu sueldo líquido, pagando una menor comisión de AFP. Simula tu aumento de sueldo al cambiarte a AFP Modelo." />
+                <meta name="robots" content="noindex, follow" />
+        </Head>
         <section>
         <div className="resultado">
             <div className="row">
@@ -260,25 +264,25 @@ export default function Resultado (props){
             </div>
         </div>
         </section>
+        </>
     );
 }
 
 export async function getServerSideProps(context) {
-    const baseUrl='https://apvbackendmanager.azurewebsites.net/'
-    const apiToken = 'ApvSimulacion/obtenerporid';
+    const uriBackend=process.env.URI_BACKEND;
+    const urlIngresarSimulacion = `${uriBackend}${process.env.URI_INGRESAR_SIMULACION}`;
     const { id } = context.query;
     const response = await axios
-        .get(`${baseUrl}${apiToken}?id=${id}`);
+        .get(`${uriBackend}${process.env.URI_OBTENER_SIMULACION}?id=${id}`);
     const data = await response.data
-    console.log(data);
     if (!data) {
         return {
             redirect: {
-                destination: '/resultado',
+                destination: '/',
                 permanent: false,
             },
         }
     }
 
-    return { props: {data} }
+    return { props: {data, urlIngresarSimulacion} }
 }

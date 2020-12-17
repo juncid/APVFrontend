@@ -7,9 +7,18 @@ import backgroundMobile from "../public/assets/svg/mobiles/backgroundMobile.svg"
 import APVForm from "../components/ApvForm";
 import axios from 'axios';
 import Link from "next/link";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export default function Home(props) {
 const bearer = props.bearer;
+
+if (typeof window !== "undefined") {
+    const sessionId = uuidv4();
+
+    localStorage.setItem('sessionId', sessionId);
+    
+}
 
   return (
       <div className="container home">
@@ -70,11 +79,11 @@ const bearer = props.bearer;
 }
 
 export async function getServerSideProps(context) {
-    const baseUrl='https://apvbackendmanager.azurewebsites.net/'
-    const apiToken = 'Token/GenerateToken';
+    const baseUrl = process.env.URI_BACKEND;
+    const apiToken = process.env.URI_GENERATE_TOKEN;
     const response = await axios
-        .get(`${baseUrl}${apiToken}`);
-    const bearer = await response.data.key
+        .get(`${baseUrl}${apiToken}`); 
+    const bearer = await response.data.key;
 
     if (!bearer) {
         return {

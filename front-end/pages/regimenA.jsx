@@ -1,5 +1,5 @@
-import { Button } from "react-bootstrap";
-import Link from 'next/link'
+import Link from 'next/link';
+import Head from "next/head";
 import hombreRegimenA from "../public/assets/svg/regimena.svg";
 import React from "react";
 import arrow from "../public/assets/svg/arrow.svg";
@@ -8,6 +8,12 @@ import backgroundMobile from "../public/assets/svg/mobiles/regimenAmobileBackgro
 export default function RegimenA() {
 
     return (
+        <>
+        <Head>
+                <title>Ahorro Previsional Voluntario | Regimen A | AFP Modelo</title>
+                <meta name="description" content="Aumenta tu sueldo líquido, pagando una menor comisión de AFP. Simula tu aumento de sueldo al cambiarte a AFP Modelo." />
+                <meta name="robots" content="noindex, follow" />
+        </Head>
         <section>
             <div className="resultado regimenPage">
                 <div className="row">
@@ -39,7 +45,7 @@ export default function RegimenA() {
                             </div>
                         </div>
                         <Link href="/regimenB" passHref>
-                            <button type="button" className="btn btn-lg btn-block purple">Ver régimen A</button>
+                            <button type="button" className="btn btn-lg btn-block purple">Ver régimen B</button>
                         </Link>
                         <br />
                         <Link href="/" passHref>
@@ -56,5 +62,6 @@ export default function RegimenA() {
                 </div>
             </div>
         </section>
+        </>
     )
 }
